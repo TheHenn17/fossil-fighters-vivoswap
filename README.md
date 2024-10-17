@@ -1,61 +1,39 @@
-# Fossil-Fighters-Randomizer
-This is a digsite, starter, and (not now but hopefully in the future) teams randomizer for FF1.
+# VivoSwap
+This is a dig site fossil swapper. You can specify two Vivosaurs, and this program will patch your game so that all fossils of Vivosaur 1 will be found at the dig sites and locations where Vivosaur 2 was originally found, and vice versa.
+You can specify as many swaps in the program as you want. I have tested up to 10 swapping pairs at once, all were successfully swapped.
 
-You MUST put the ROM in the same folder as the exe, or it won't work.
+This code is branched from code created by opiter09 to randomize various aspects of the game, found here: https://github.com/opiter09/Fossil-Fighters-Randomizer
+
+It is well worth checking out. Major props to opiter09 for all of the work to patch the actual game, I only modified his randomizer to make it so you can specify the swaps yourself instead.
+I also removed a lot of other features from his program because I did not need them, such as changing your Starter Vivosaur and increasing the difficulty of Battles. Please check it out if that sounds interesting.
+
+I created this program out of simple annoyance that some Vivosaurs like T-Rex are only able to be revived in Post-Game where it is basically pointless and you can never use them. At least Pokemon allows you to catch the game's mascot before you beat it.
+
+As this is based on opiter09's work, it shares some of the same quirks and features.
+
+Quirks:
+- You MUST put the ROM in the same folder as swapper.exe, or it won't work.
+- Using swapper.exe will modify the game to skip the Trial Dig Site (awesome), but as a result of this, if you try to leave the dig site selection menu when talking to Beth during Chapter 1, the game will freeze, so dont do that.
+- You can only swap the main 100 Vivosaurs, the other special Vivosaurs will remain as they were.
+- I have only tested this program on a USA version of the game, and I suspect it will only work on USA or English versions of the game
+- Be EXTRA careful if you ever plan on swapping V-Raptor, as you can lock yourself out of the rest of the game in Chapter 3 if you swap it with a Vivosaur that is only found in dig sites after Rivet Ravine. This is because you must use a V-Raptor when battling Holt at the Junk Depot.
 
 Features:
-- This mod uses event-editing shenanigans to make it so you cannot go to the Trial Dig Site,
-  and you can go to Greenhorn right away. As a result of this, however, if you try to back out
-  of the digsite selection menu during Chapter 1, the game will freeze
-- You can only dig up the main 100
-- Vivos are matched 1-to-1, so nothing is impossible to get
-- "Team Level Change:" raises or lowers (you can use negatives with a "-") the levels of all
-  vivosaurs in all enemy teams. If you set "TLC on Nameless?" to "No", this will not affect
-  random fighters (i.e. the ones named "Fossil Fighter")
-- Your random starter cannot be Spinax or water-type, nor someone from Post-Game Vivos
-- The Custom Starter box must contain a single vivo Number, from 1 to 116, or it will do
-  nothing. It also ignores the usual restrictions on Post-Game Vivos, so it is possible to
-  make 100% completion impossible
-- FF1 is much easier than FFC in terms of IDs: the only oddity is that choosing 105 or 106
-  will get you the OP Frigi and Igno, while the normal ones are 115 and 116
-- If the custom starter is over 100 and not a Chicken, it will appear to revive Chelon.
-  This is purely cosmetic, however
-- The Starter in GP button force-swaps Spinax fossils and your starter's. If the starter is
-  custom and has a number over 100, it will force-swap Spinax and Chelon instead
-- The seven vivosaurs listed in the box Post-Game Vivos, naturally, only appear post-game.
-  These are T-Rex, Guan, Compso, V-Raptor, Zino, Lambeo, and Centro. All you need to do to
-  change this is edit the text input, making sure to use the vivosaurs' Numbers, and separating
-  each by a comma and any number of spaces. Also, all entries after the 17th will be ignored
-- To make the Holt fight beatable, you can always find (the first two parts of) V-Raptor in the
-  Keymonite room in the Digadigamid. IMPORTANT: For technical reasons, these fossils will ONLY
-  appear if you have neither fossil chip
-- Mono-Spawn Mode makes it so each map [1] only spawns one vivo (along with jewels, dropping
-  fossils, etc.). The exception is non-PTD Greenhorn Plains (along with the Keymonite Room and
-  the Trial Dig Site), so you have a good foundation and aren't completely at the mercy of RNG
-- Said vivo is the first found in the file, so some related maps will have the same one, and
-  others won't. Also, to be clear, with this on you will not be able to get every vivosaur
-- Due to how text replacing works, you may see multiple DP vivos listed as the same one in
-  the rare case where one vanilla DP vivosaur turns into another one that comes after it.
-  If that happens, you can consult the file "newDPVivos.txt" to see which is which
-- Because of this text editing, this randomizer will only work on the English version of the
-  game, gomen'nasai
-- Changing enemies' levels does not change how many moves they have. The code for this, like
-  the ability to randomize teams, is here but dummied out, due to problems with the very
-  hardcoded AI files
+- The Trial Dig Site tutorial is skipped (see above)
+- You can swap as many Vivosaurs as you want
+- Only the first swap of a Vivosaur will take place. If you try to specify another swap involving a previously swapped Vivosaur, that swap will be skipped
+- If at least one of a swaps entries is left blank, that swap will be skipped
+- Specifying a swap involving a Donation Point Vivosaur will also swap them at the Donation Booth (see newDPVivos.txt)
+- A list of all the Dig sites with the original spawns and rates is available in originalDigsiteSpawns.txt. After running the program, you can see the new Vivosaur locations in newDigsiteSpawns.txt
 
-If you would like to see the table of new spawns, see the "newDigsiteSpawns.txt" the
-randomizer generates.
-
-Also, you download this by pressing the green "Code" button and choosing "Download ZIP," and
-you run it by dragging and dropping an FF1 ROM onto randomize.exe.
-
-Finally, this normally only works on Windows. For Mac and Linux, I can only point you to
-WINE: https://www.winehq.org
-
-[1]: I mean this in the more internal sense of "a continuous area with no loading zones in
-between", not a whole digsite.
+How to use:
+- Obtain a ROM of Fossil Fighters
+- Download: press the green "Code" button and choose "Download ZIP." Extract the files and place your ROM into the extracted file folder
+- Windows ONLY: drag and drop your ROM onto swapper.exe to start the program
+- Other OS: If you are tech-savvy enough, you can install Python and run the script swapper.py with the ROM name as the only argument, otherwise, I am not sure I can help you
 
 # Source Codes
+- Base Code: https://github.com/opiter09/Fossil-Fighters-Randomizer
 - FFTool: https://github.com/jianmingyong/Fossil-Fighters-Tool
 - NDSTool: https://github.com/devkitPro/ndstool (this is a later version; the one used here came without a license as part of DSLazy)
 - xdelta: https://github.com/jmacd/xdelta-gpl
